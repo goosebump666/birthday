@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday!</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* GENERAL STYLING */
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #FFF0F5; /* Lavender Blush - a soft pink */
+            color: #333;
+            overflow: hidden; /* Mencegah scroll */
+        }
+
+        /* PAGE CONTAINER */
+        .page {
+            display: none; /* Semua page disembunyikan awalnya */
+            position: absolute;
+            width: 100%;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.7s ease-in-out; /* Efek fade */
+            animation: fadeIn 0.7s forwards;
+        }
+
+        .page.active {
+            display: flex; /* Page yang aktif akan ditampilkan */
+            opacity: 1;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .content {
+            max-width: 90%;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px 0 rgba(231, 38, 135, 0.37);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+
+        /* ELEMENTS STYLING */
+        .image-container {
+            width: 250px;
+            height: 250px;
+            margin: 0 auto 20px auto;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .subtitle {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #d83a7a;
+            margin: 15px 0;
+        }
+
+        button {
+            background-color: #FF69B4; /* Hot Pink */
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            margin: 5px;
+        }
+
+        button:hover {
+            background-color: #FF1493; /* Deep Pink */
+            transform: scale(1.05);
+        }
+        
+        .button-group {
+            display: flex;
+            justify-content: center;
+        }
+        
+        #page6 .content button {
+            margin-top: 20px;
+        }
+
+        /* LETTER BOX (PAGE 4) */
+        .letter-box {
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 500px;
+            text-align: left;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .letter-box h3 {
+            color: #d83a7a;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .letter-box p {
+            line-height: 1.7;
+        }
+
+        .letter-box .signature {
+            text-align: right;
+            font-style: italic;
+            margin-top: 20px;
+        }
+
+        /* MUSIC & FINAL PAGE */
+        .music-player {
+            margin: 20px auto;
+            max-width: 380px; /* Lebar standar spotify embed */
+            width: 100%;
+        }
+
+        .description {
+            max-width: 400px;
+            margin: 20px auto;
+            font-style: italic;
+            color: #555;
+        }
+
+        h2, .final-message {
+            font-weight: 700;
+            color: #d83a7a;
+            font-size: 1.8rem;
+        }
+
+        .photo-gallery {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .photo-template {
+            width: 100px;
+            height: 100px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .photo-template img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* RESPONSIVE FOR MOBILE */
+        @media (max-width: 600px) {
+            .content, .letter-box {
+                max-width: 90%;
+                padding: 15px;
+            }
+
+            .subtitle, h2, .final-message {
+                font-size: 1.5rem;
+            }
+
+            .image-container {
+                width: 200px;
+                height: 200px;
+            }
+            
+            .photo-gallery {
+                gap: 10px;
+            }
+
+            .photo-template {
+                width: 80px;
+                height: 80px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="page1" class="page active">
+        <div class="content">
+            <div class="image-container">
+                <img src="https://i.imgur.com/iO95Aea.png" alt="A lovely picture">
+            </div>
+            <p class="subtitle">happy birthday my baby!(⁠｡⁠♡⁠‿⁠♡⁠｡⁠)</p>
+            <button onclick="showPage('page2')">Next</button>
+        </div>
+    </div>
+
+    <div id="page2" class="page">
+        <div class="content">
+            <div class="image-container">
+                 <img src="https://i.imgur.com/l1080x2.png" alt="A letter">
+            </div>
+            <p class="subtitle">do you want to open it?꒰⁠⑅⁠ᵕ⁠༚⁠ᵕ⁠꒱⁠˖⁠♡</p>
+            <div class="button-group">
+                <button onclick="showPage('page4')">Open It</button>
+                <button onclick="showPage('page3')">No, ty</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="page3" class="page">
+        <div class="content">
+            <div class="image-container">
+                <img src="https://i.imgur.com/ynVsdMm.png" alt="Crying face">
+            </div>
+            <p class="subtitle">awww.. let's try again</p>
+<p class="subtitle">PLEASE??!(⁠╯⁠︵⁠╰⁠,⁠)</p>
+            <button onclick="showPage('page2')">Again</button>
+        </div>
+    </div>
+
+    <div id="page4" class="page">
+        <div class="letter-box">
+            <h3>To: My Dearest Love,</h3>
+            <p>
+                Di usia yang ke-22 ini, aku doakan semoga semua hal yang kamu jalani dimudahkan, cita-cita kamu satu per satu tercapai, dan rezekimu selalu dilancarkan.
+
+Maaf kalau selama 1,5 tahun ini aku masih sering bikin kamu sedih atau kesel. Tapi yang perlu kamu tau, aku sayang banget sama kamu, aku selalu berusaha jadi lebih baik, dan aku bersyukur banget punya kamu di hidup aku.
+            </p>
+            <p class="signature">With Love,<br>Akbar</p>
+            <button onclick="showPage('page5')">Next</button>
+        </div>
+    </div>
+
+    <div id="page5" class="page">
+        <div class="content">
+            <h2>This Song is For You</h2>
+            <div class="music-player">
+                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/7J0isBrUxhIYZVdrBOOlIh?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            </div>
+            <p class="description">
+                kaya kata kamu, lagu cincin bener-bener menggambarkan hubungan kita, love u so much
+            </p>
+            <button onclick="showPage('page6')">Last Page</button>
+        </div>
+    </div>
+
+    <div id="page6" class="page">
+        <div class="content">
+            <h2 class="final-message">Happy Birthday, Once Again!</h2>
+            <p>Thank you for being in my life. I love you more than words can say.</p>
+            <div class="photo-gallery">
+                <div class="photo-template"><img src="https://via.placeholder.com/150/FFC0CB/000000?Text=Foto+1" alt="Photo 1"></div>
+                <div class="photo-template"><img src="https://via.placeholder.com/150/FFB6C1/000000?Text=Foto+2" alt="Photo 2"></div>
+                <div class="photo-template"><img src="https://via.placeholder.com/150/FFA07A/000000?Text=Foto+3" alt="Photo 3"></div>
+            </div>
+            <button onclick="showPage('page1')">Ulangi dari Awal</button>
+        </div>
+    </div>
+
+    <script>
+        // Menampilkan page pertama saat halaman pertama kali dimuat
+        document.addEventListener('DOMContentLoaded', () => {
+            const firstPage = document.querySelector('.page');
+            if (firstPage) {
+                firstPage.classList.add('active');
+            }
+        });
+
+        function showPage(pageId) {
+            // Sembunyikan semua page
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => {
+                page.classList.remove('active');
+            });
+
+            // Tampilkan page yang dipilih
+            const nextPage = document.getElementById(pageId);
+            if (nextPage) {
+                nextPage.classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>
